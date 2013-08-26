@@ -58,7 +58,7 @@ static TwitterClient *privateSharedInstance;
 		if (error.code == 6) {
 			NSLog(@"No Twitter account linked to device.");
 			runOnMainQueueSync(^{
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Oops!" message: @"Please Add a Twitter Account!" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Oops!" message: @"Please Add a Twitter Account in Your Phone Settings!" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 				[alert show];
 			});
 		}
