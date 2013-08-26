@@ -57,6 +57,10 @@ static TwitterClient *privateSharedInstance;
 	[_accountStore requestAccessToAccountsWithType:_twitterAccountType options:nil completion:^(BOOL granted, NSError *error) {
 		if (error.code == 6) {
 			NSLog(@"No Twitter account linked to device.");
+			runOnMainQueueSync(^{
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Oops!" message: @"Please Add a Twitter Account!" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+				[alert show];
+			});
 		}
 		if (!granted) {
 			// The user rejected your request

@@ -92,7 +92,9 @@ static CGFloat tableRowHeight = 75.0;
 
 - (void)didSignIn
 {
-	[self dismissViewControllerAnimated:YES completion:nil];
+	runOnMainQueueSync(^{
+		[self dismissViewControllerAnimated:YES completion:nil];
+	});
 }
 
 - (void)didReceiveNewStreamingTweet:(id)tweet
